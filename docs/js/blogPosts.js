@@ -21,5 +21,4 @@ function displayBlogPosts() {
     });
 }
 
-// DOMが読み込まれた後に実行
 document.addEventListener('DOMContentLoaded', displayBlogPosts);
