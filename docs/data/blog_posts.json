@@ -1,0 +1,23 @@
+{
+    "last_updated": "2024-03-24T00:00:00",
+    "articles": [
+      {
+        "title": "テスト記事1",
+        "date": "2024-03-24",
+        "url": "#",
+        "content": "<p>いらっしゃいませ<img src='https://stat100.ameba.jp/blog/ucs/img/char/char3/007.png' alt='照れ' class='inline h-5 w-5 align-middle' /></p>"
+      },
+      {
+        "title": "テスト記事2",
+        "date": "2024-03-23",
+        "url": "#",
+        "content": "<p>テスト記事の内容です</p>"
+      },
+      {
+        "title": "テスト記事3",
+        "date": "2024-03-22",
+        "url": "#",
+        "content": "<p>これはテスト用の記事です</p>"
+      }
+    ]
+  }
