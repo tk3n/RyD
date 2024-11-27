@@ -23,6 +23,7 @@
 </head>
 
 <body class="bg-wood-light">
+    <!-- ヘッダー -->
     <header class="bg-white shadow-lg">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
@@ -79,7 +80,7 @@
             <div class="container mx-auto px-6">
                 <h2 class="text-2xl font-bold text-wood-dark mb-8">最近のブログ記事</h2>
                 <div id="recent-blog-posts" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <p class="bg-white p-6 rounded-lg shadow-md">最新記事の取得に失敗しました&#x1f62d;</p>
+                    <p class="bg-white p-6 rounded-lg shadow-md">最新のブログ記事の取得に失敗しました&#x1f62d;</p>
                 </div>
             </div>
         </section>
@@ -88,7 +89,7 @@
             <div class="container mx-auto px-6">
                 <h2 class="text-2xl font-bold text-wood-dark mb-8">おすすめブログ記事</h2>
                 <div id="recommended-blog-posts" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <p class="bg-white p-6 rounded-lg shadow-md">おすすめ記事の取得に失敗しました&#x1f62d;</p>
+                    <p class="bg-white p-6 rounded-lg shadow-md">おすすめのブログ記事の取得に失敗しました&#x1f62d;</p>
                 </div>
             </div>
         </section>
@@ -125,6 +126,7 @@
         </section>
     </main>
 
+    <!-- フッター -->
     <footer class="bg-wood-dark text-white py-6 mt-10 opacity-85 text-center">
         <div class="container mx-auto flex justify-center items-center">
             <p class="px-6">&copy; 2024 ルイーダの酒場</p>
@@ -137,6 +139,7 @@
         </div>
     </footer>
 
+    <!-- jsonからブログ情報を取得 -->
     <script src="js/recentBlogPosts.js"></script>
     <script src="js/recommendedBlogPosts.js"></script>
 </body>
