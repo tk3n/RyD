@@ -1,8 +1,8 @@
 function displayBlogPosts() {
-  fetch('data/blog_posts.json')
+  fetch('data/recent_blog_posts.json')
     .then(response => response.json())
     .then(data => {
-      const blogList = document.getElementById('recent-blog-list');
+      const blogList = document.getElementById('recent-blog-posts');
       blogList.innerHTML = '';
       
       data.articles.forEach(article => {

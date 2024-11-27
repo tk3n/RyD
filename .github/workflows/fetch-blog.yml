@@ -20,7 +20,7 @@ jobs:
 
       - name: Run test script
         env:
-          FILE_PATH: ${{ github.workspace }}/docs/data/hello_world.json
+          FILE_PATH: ${{ github.workspace }}/docs/data/recent_blog_posts.json
         run: |
           mkdir -p ${{ github.workspace }}/docs/data
           python ${{ github.workspace }}/.github/scripts/fetch_blog.py
