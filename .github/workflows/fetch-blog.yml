@@ -31,7 +31,7 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git add .
           git commit -m "hello world from github actions"
-          git push
+          git push origin HEAD:${GITHUB_REF#refs/heads/}
 
 # syntax
 # https://docs.github.com/ja/actions/writing-workflows/workflow-syntax-for-github-actions
