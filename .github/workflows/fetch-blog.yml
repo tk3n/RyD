@@ -17,14 +17,18 @@ jobs:
           python-version: '3.12'
 
       - name: Run test script
-        run: python .github/scripts/fetch_blog.py
+        env:
+          FILE_PATH: ${{ github.workspace }}/docs/data/blog_posts.json
+        run: |
+          mkdir -p ${{ github.workspace }}/docs/data
+          python ${{ github.workspace }}/.github/scripts/fetch_blog.py
 
       - name: Commit and push if changed
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add data/
-          git diff --quiet && git diff --staged --quiet || git commit -m "Update blog posts with test data"
+          git add ${{ github.workspace }}/docs/data/
+          git diff --quiet && git diff --staged --quiet || git commit -m "hello world from github actions"
           git push
 
 # syntax
