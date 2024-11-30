@@ -1,8 +1,12 @@
 name: Fetch Blog Test
 
 on:
-  # ワークフローを手動でトリガー
+  # 手動実行を維持
   workflow_dispatch:
+  # 定時実行を追加
+  schedule:
+    # 毎日11時に実行 (cron構文)
+    - cron: '0 2 * * *'
 
 jobs:
   test-fetch:
