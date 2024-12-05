@@ -46,6 +46,12 @@ def convert_mark_to_p(soup):
            del mark.attrs['style']
    return soup
 
+def remove_ogp_cards(entry_body):
+    """ogpCard_rootクラスを持つdivを削除"""
+    for div in entry_body.find_all('div', class_='ogpCard_root'):
+        div.decompose()
+    return entry_body
+
 def process_images(entry_body):
     """
     画像の一連の処理を行う
@@ -101,8 +107,17 @@ def get_article_data(entry_item_body):
     # 記事本文を取得
     article_soup = get_soup(url)
     entry_body = article_soup.find('div', id='entryBody')
+
+    # リンクのカードを除去
+    entry_body = remove_ogp_cards(entry_body)
+
+    # 画像処理
     entry_body = process_images(entry_body)
+
+    # マーカーをpタグにする
     entry_body = convert_mark_to_p(entry_body)
+
+    # 四行分取り出す
     content_elements = get_child_elements(entry_body)
     content = ''.join(content_elements)
     

@@ -48,5 +48,5 @@ function setupTabs() {
 
 document.addEventListener('DOMContentLoaded', () => {
   setupTabs();
-  displayBlogPosts('recent'); // デフォルトで最新を表示
+  displayBlogPosts('recent');
 });
