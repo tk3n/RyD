@@ -2,204 +2,106 @@
 .snow-container {
     display: flex;
     position: fixed;
-    width: 100vw;
-    height: 100dvh;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
     z-index: -1;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    pointer-events: none;
 }
+
 .snow-container .snow span,
 .snow-container .snow::before,
 .snow-container .snow::after {
     position: absolute;
-    width: 100%;
-    height: 100%;
     color: snow;
-    text-align: center;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    opacity: 0;
+    width: 100%;
 }
-.snow-container .snow.small {
-    font-size: 1.2rem;
-    opacity: 1;
-}
-.snow-container .snow.medium {
+
+.snow-container .snow.small span,
+.snow-container .snow.small::before,
+.snow-container .snow.small::after {
     font-size: 1.4rem;
+}
+
+.snow-container .snow.medium span,
+.snow-container .snow.medium::before,
+.snow-container .snow.medium::after {
+    font-size: 1.8rem;
+}
+
+.snow-container .snow.large span,
+.snow-container .snow.large::before,
+.snow-container .snow.large::after {
+    font-size: 2.2rem;
+}
+
+/* 基本の雪のアニメーション - 落下のみ */
+.snow-container .snow span {
+    display: block;
+    animation: snowfall 8s linear infinite;
     opacity: 0.8;
 }
-.snow-container .snow.large {
-    font-size: 1.6rem;
+
+.snow-container .snow::before,
+.snow-container .snow::after {
+    content: "❄";
+    animation: snowfall 10s linear infinite;
     opacity: 0.6;
 }
 
-.snow-container .snow.small span {
-    display: block;
-    animation: fall-small 7s linear infinite;
-}
-.snow-container .snow.small::before {
-    content: "❄";
-    left: -30%;
-    animation: fall-small 9s linear infinite;
-}
-.snow-container .snow.small::after {
-    content: "❄";
-    left: 30%;
-    animation: fall-small 13s linear infinite;
-}
+/* 雪の位置とタイミングの調整 */
+.snow-container .snow.small span { animation-duration: 12s; left: 15%; }
+.snow-container .snow.small::before { animation-duration: 14s; left: 45%; }
+.snow-container .snow.small::after { animation-duration: 16s; left: 75%; }
 
-.snow-container .snow.medium span {
-    display: block;
-    left: 10%;
-    animation: fall-medium 8s linear infinite;
-}
-.snow-container .snow.medium::before {
-    content: "❄";
-    left: -40%;
-    animation: fall-medium 10s linear infinite;
-}
-.snow-container .snow.medium::after {
-    content: "❄";
-    left: 40%;
-    animation: fall-medium 6s linear infinite;
-}
+.snow-container .snow.medium span { animation-duration: 10s; left: 25%; }
+.snow-container .snow.medium::before { animation-duration: 13s; left: 55%; }
+.snow-container .snow.medium::after { animation-duration: 15s; left: 85%; }
 
-.snow-container .snow.large span {
-    display: block;
-    left: -10%;
-    animation: fall-large 5s linear infinite;
-}
-.snow-container .snow.large::before {
-    content: "❄";
-    left: -35%;
-    animation: fall-large 6s linear infinite;
-}
-.snow-container .snow.large::after {
-    content: "❄";
-    left: 35%;
-    animation: fall-large 7s linear infinite;
-}
-.snow-container .snow.large span::before {
+.snow-container .snow.large span { animation-duration: 15s; left: 35%; }
+.snow-container .snow.large::before { animation-duration: 17s; left: 65%; }
+.snow-container .snow.large::after { animation-duration: 19s; left: 95%; }
+
+/* 追加の雪を生成 */
+.snow-container .snow span::before,
+.snow-container .snow span::after {
     content: "❄";
     position: absolute;
-    left: -80%;
-    animation: fall-large 8s linear infinite;
-}
-.snow-container .snow.large span::after {
-    content: "❄";
-    position: absolute;
-    left: 80%;
-    animation: fall-large 9s linear infinite;
+    animation: snowfall 11s linear infinite;
 }
 
-@keyframes fall-small {
-    0% {
-    top: -20px;
-    }
-    3% {
-    transform: translateX(5px);
-    }
-    7% {
-    transform: translateX(5px);
-    }
-    18% {
-    transform: translateX(-5px);
-    }
-    22% {
-    transform: translateX(-5px);
-    }
-    38% {
-    transform: translateX(13px);
-    }
-    42% {
-    transform: translateX(13px);
-    }
-    58% {
-    transform: translateX(-13px);
-    }
-    62% {
-    transform: translateX(-13px);
-    }
-    78% {
-    transform: translateX(13px);
-    }
-    82% {
-    transform: translateX(13px);
-    }
-    100% {
-    top: calc(100% + 20px);
-    }
-}
+.snow-container .snow span::before { left: -50%; }
+.snow-container .snow span::after { left: 50%; }
 
-@keyframes fall-medium {
-    0% {
-    top: -200px;
-    }
-    3% {
-    transform: translateX(5px);
-    }
-    7% {
-    transform: translateX(5px);
-    }
-    18% {
-    transform: translateX(-5px);
-    }
-    22% {
-    transform: translateX(-5px);
-    }
-    38% {
-    transform: translateX(13px);
-    }
-    42% {
-    transform: translateX(13px);
-    }
-    58% {
-    transform: translateX(-13px);
-    }
-    62% {
-    transform: translateX(-13px);
-    }
-    78% {
-    transform: translateX(13px);
-    }
-    82% {
-    transform: translateX(13px);
-    }
-    100% {
-    top: calc(100% + 20px);
-    }
-}
+/* アニメーションの遅延設定 */
+.snow-container .snow:nth-child(2) span { animation-delay: -4s; }
+.snow-container .snow:nth-child(3) span { animation-delay: -2s; }
+.snow-container .snow:nth-child(4) span { animation-delay: -6s; }
+.snow-container .snow:nth-child(5) span { animation-delay: -3s; }
+.snow-container .snow:nth-child(6) span { animation-delay: -5s; }
+.snow-container .snow:nth-child(7) span { animation-delay: -7s; }
+.snow-container .snow:nth-child(8) span { animation-delay: -1s; }
+.snow-container .snow:nth-child(9) span { animation-delay: -4.5s; }
+.snow-container .snow:nth-child(10) span { animation-delay: -2.5s; }
 
-@keyframes fall-large {
+@keyframes snowfall {
     0% {
-    top: -300px;
+        top: -5%;
+        opacity: 0;
     }
-    3% {
-    transform: translateX(5px);
+    10% {
+        opacity: 0.8;
     }
-    7% {
-    transform: translateX(5px);
-    }
-    18% {
-    transform: translateX(-5px);
-    }
-    22% {
-    transform: translateX(-5px);
-    }
-    38% {
-    transform: translateX(13px);
-    }
-    42% {
-    transform: translateX(13px);
-    }
-    58% {
-    transform: translateX(-13px);
-    }
-    62% {
-    transform: translateX(-13px);
-    }
-    78% {
-    transform: translateX(13px);
-    }
-    82% {
-    transform: translateX(13px);
+    90% {
+        opacity: 0.8;
     }
     100% {
-    top: calc(100% + 20px);
+        top: 105%;
+        opacity: 0;
     }
 }
