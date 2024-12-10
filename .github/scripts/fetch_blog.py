@@ -68,10 +68,10 @@ def process_images(entry_body):
 
 def remove_non_emoji_images(entry_body):
     """emoji以外の画像を削除"""
+    for a in entry_body.find_all('a', href=lambda x: x and 'user_images' in x):
+        a.decompose()
+    
     for img in entry_body.find_all('img'):
-        if not img:
-            continue
-        
         if 'emoji' not in img.get('class', []):
             img.decompose()
     
