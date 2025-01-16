@@ -2,373 +2,275 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>&#x5408;&#x4f75;&#x306b;&#x5411;&#x3051;&#x3066;</title>
-    <style>
-      /* From extension vscode.github */
-      /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
-
-      .vscode-dark img[src$="\#gh-light-mode-only"],
-      .vscode-light img[src$="\#gh-dark-mode-only"],
-      .vscode-high-contrast:not(.vscode-high-contrast-light)
-        img[src$="\#gh-light-mode-only"],
-      .vscode-high-contrast-light img[src$="\#gh-dark-mode-only"] {
-        display: none;
-      }
-    </style>
-
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css"
-    />
+    <title>合併に向けて</title>
     <style>
       body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI",
-          system-ui, "Ubuntu", "Droid Sans", sans-serif;
-        font-size: 14px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
         line-height: 1.6;
-      }
-    </style>
-    <style>
-      .task-list-item {
-        list-style-type: none;
-      }
-
-      .task-list-item-checkbox {
-        margin-left: -20px;
-        vertical-align: middle;
-        pointer-events: none;
-      }
-    </style>
-    <style>
-      :root {
-        --color-note: #0969da;
-        --color-tip: #1a7f37;
-        --color-warning: #9a6700;
-        --color-severe: #bc4c00;
-        --color-caution: #d1242f;
-        --color-important: #8250df;
-      }
-    </style>
-    <style>
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --color-note: #2f81f7;
-          --color-tip: #3fb950;
-          --color-warning: #d29922;
-          --color-severe: #db6d28;
-          --color-caution: #f85149;
-          --color-important: #a371f7;
-        }
-      }
-    </style>
-    <style>
-      .markdown-alert {
-        padding: 0.5rem 1rem;
-        margin-bottom: 16px;
-        color: inherit;
-        border-left: 0.25em solid #888;
+        color: #333;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f5f5f5;
       }
 
-      .markdown-alert > :first-child {
-        margin-top: 0;
+      .container {
+        background-color: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
 
-      .markdown-alert > :last-child {
-        margin-bottom: 0;
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: #2c3e50;
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
       }
 
-      .markdown-alert .markdown-alert-title {
-        display: flex;
-        font-weight: 500;
-        align-items: center;
-        line-height: 1;
+      h1 {
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
       }
 
-      .markdown-alert .markdown-alert-title .octicon {
-        margin-right: 0.5rem;
-        display: inline-block;
-        overflow: visible !important;
-        vertical-align: text-bottom;
-        fill: currentColor;
+      h2 {
+        border-bottom: 1px solid #bdc3c7;
+        padding-bottom: 5px;
       }
 
-      .markdown-alert.markdown-alert-note {
-        border-left-color: var(--color-note);
+      ul {
+        padding-left: 20px;
       }
 
-      .markdown-alert.markdown-alert-note .markdown-alert-title {
-        color: var(--color-note);
+      li {
+        margin: 8px 0;
       }
 
-      .markdown-alert.markdown-alert-important {
-        border-left-color: var(--color-important);
+      a {
+        color: #3498db;
+        text-decoration: none;
       }
 
-      .markdown-alert.markdown-alert-important .markdown-alert-title {
-        color: var(--color-important);
+      a:hover {
+        text-decoration: underline;
       }
 
-      .markdown-alert.markdown-alert-warning {
-        border-left-color: var(--color-warning);
+      details {
+        margin: 20px 0;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 4px;
       }
 
-      .markdown-alert.markdown-alert-warning .markdown-alert-title {
-        color: var(--color-warning);
+      summary {
+        cursor: pointer;
+        color: #2c3e50;
+        font-weight: 600;
       }
 
-      .markdown-alert.markdown-alert-tip {
-        border-left-color: var(--color-tip);
+      blockquote {
+        border-left: 4px solid #3498db;
+        margin: 15px 0;
+        padding: 10px 20px;
+        background-color: #f8f9fa;
       }
 
-      .markdown-alert.markdown-alert-tip .markdown-alert-title {
-        color: var(--color-tip);
+      img {
+        max-width: 100%;
+        height: auto;
+        margin: 20px 0;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
 
-      .markdown-alert.markdown-alert-caution {
-        border-left-color: var(--color-caution);
-      }
-
-      .markdown-alert.markdown-alert-caution .markdown-alert-title {
-        color: var(--color-caution);
+      .info-box {
+        background-color: #ebf5fb;
+        border-left: 4px solid #3498db;
+        padding: 15px;
+        margin: 15px 0;
       }
     </style>
   </head>
-  <body class="vscode-body vscode-light">
-    <h1 id="合併に向けて">合併に向けて</h1>
-    <h2 id="目次">目次</h2>
-    <ul>
-      <li>
-        <a href="#%E5%90%88%E4%BD%B5%E3%81%AB%E5%90%91%E3%81%91%E3%81%A6"
-          >合併に向けて</a
-        >
+  <body>
+    <div class="container">
+      <h1>合併に向けて</h1>
+
+      <h2>目次</h2>
+      <ul>
+        <li><a href="#main-sources">主な情報源</a></li>
+        <li><a href="#cities">都市</a></li>
+        <li><a href="#alliance-territory">同盟領地</a></li>
+        <li><a href="#fort">砦/要塞</a></li>
+        <li><a href="#merger-partner">合併相手</a></li>
+        <li><a href="#stations">ステーション</a></li>
+        <li><a href="#other">その他</a></li>
+        <li><a href="#thoughts-quotes">思ったこと・引用など</a></li>
+      </ul>
+
+      <section id="main-sources">
+        <h2>主な情報源</h2>
+        <div class="info-box">
+          <a
+            href="https://discord.com/channels/973157270554804264/1263349407395483729"
+            >discord(第1回王国合併(1-19鯖)の備忘録)</a
+          ><br />
+          <a href="https://x.com/WOS_Japan/status/1808089006011568385"
+            >公式QA</a
+          >
+        </div>
+      </section>
+
+      <section id="cities">
+        <h2>都市</h2>
+        <p>合併後ランダム移転し、24時間のシールドが張られる</p>
+
+        <h3>考えたこととか</h3>
         <ul>
-          <li><a href="#%E7%9B%AE%E6%AC%A1">目次</a></li>
+          <li>合流場所を複数決めておくとよさそう</li>
+          <li>てんちょ移転 -> みんな集まる もあり</li>
+        </ul>
+      </section>
+
+      <section id="alliance-territory">
+        <h2>同盟領地</h2>
+        <p>
+          同盟領地のボーナスは無効になり、すべての領地建物は回収される（建設に使用されたすべての資源は同盟倉庫に返還される）
+        </p>
+        <p>
+          合併後、同盟本部を建設する必要はない（ラッパやマスター像と同じで、そのまま設置できる）
+        </p>
+
+        <h3>同盟旗の解放スケジュール</h3>
+        <ul>
+          <li>初期5本</li>
+          <li>6～10本目は2時間毎に1本解放</li>
+          <li>11～20本目は1時間毎に1本解放</li>
+          <li>21～60本目は30分毎に1本解放</li>
+          <li>61～285本目は15分毎に1本解放</li>
+        </ul>
+
+        <h3>考えたこととか</h3>
+        <ul>
           <li>
-            <a href="#%E3%81%84%E3%82%8D%E3%81%84%E3%82%8D">いろいろ</a>
-            <ul>
-              <li>
-                <a href="#%E4%B8%BB%E3%81%AA%E6%83%85%E5%A0%B1%E6%BA%90"
-                  >主な情報源</a
-                >
-              </li>
-              <li>
-                <a href="#%E9%83%BD%E5%B8%82">都市</a>
-                <ul>
-                  <li>
-                    <a
-                      href="#%E8%80%83%E3%81%88%E3%81%9F%E3%81%93%E3%81%A8%E3%81%A8%E3%81%8B"
-                      >考えたこととか</a
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="#%E5%90%8C%E7%9B%9F%E9%A0%98%E5%9C%B0">同盟領地</a>
-                <ul>
-                  <li>
-                    <a
-                      href="#%E8%80%83%E3%81%88%E3%81%9F%E3%81%93%E3%81%A8%E3%81%A8%E3%81%8B-1"
-                      >考えたこととか</a
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li><a href="#%E7%A0%A6%E8%A6%81%E5%A1%9E">砦/要塞</a></li>
-              <li>
-                <a href="#%E5%90%88%E4%BD%B5%E7%9B%B8%E6%89%8B">合併相手</a>
-              </li>
-              <li>
-                <a
-                  href="#%E3%82%B9%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3"
-                  >ステーション</a
-                >
-              </li>
-              <li><a href="#%E3%81%9D%E3%81%AE%E4%BB%96">その他</a></li>
-              <li>
-                <a
-                  href="#%E7%8E%8B%E5%9F%8E%E6%B1%BA%E6%88%A6%E3%81%A8%E5%9F%B7%E6%94%BF%E5%AE%98%E5%87%A6%E7%90%86"
-                  >王城決戦と執政官処理</a
-                >
-              </li>
-              <li>
-                <a href="#%E6%9C%80%E5%BC%B7%E7%8E%8B%E5%9B%BD">最強王国</a>
-              </li>
-              <li>
-                <a
-                  href="#%E5%85%B5%E5%99%A8%E5%B7%A5%E5%A0%B4%E4%BA%89%E5%A5%AA%E6%88%A6%E5%B3%A1%E8%B0%B7%E5%90%88%E6%88%A6"
-                  >兵器工場争奪戦/峡谷合戦</a
-                >
-              </li>
-              <li>
-                <a href="#%E3%83%A9%E3%83%B3%E3%82%AD%E3%83%B3%E3%82%B0"
-                  >ランキング</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#%E8%8B%B1%E9%9B%84%E9%9B%86%E7%B5%90%E8%B6%85%E5%BE%97%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E3%81%AE%E6%97%97%E3%81%AE%E4%B8%80%E3%81%8B%E6%9C%88%E3%81%AE%E3%82%84%E3%81%A4"
-                  >英雄集結(超得イベントの旗の一か月のやつ)</a
-                >
-              </li>
-              <li>
-                <a href="#%E5%90%8C%E7%9B%9F%E7%95%A5%E7%A7%B0">同盟略称</a>
-                <ul>
-                  <li><a href="#%E3%83%A1%E3%83%A2">メモ</a></li>
-                </ul>
-              </li>
-              <li><a href="#%E5%90%8C%E7%9B%9F%E5%90%8D">同盟名</a></li>
-              <li><a href="#%E9%A0%98%E4%B8%BB%E5%90%8D">領主名</a></li>
-              <li>
-                <a
-                  href="#%E3%83%9E%E3%82%A4%E3%83%AB%E3%82%B9%E3%83%88%E3%83%BC%E3%83%B3"
-                  >マイルストーン</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li>
+            rydや適当な同盟を使って遠いステーションを囲っておくのもあり(今後の遺恨を考えないのであれば)
             <a
-              href="#%E6%80%9D%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8%E5%BC%95%E7%94%A8%E3%81%AA%E3%81%A9"
-              >思ったこと・引用など</a
+              href="https://discord.com/channels/973157270554804264/1070095511597613066/1269096748937379922"
+              >参照</a
             >
           </li>
         </ul>
-      </li>
-    </ul>
-    <h2 id="いろいろ">いろいろ</h2>
-    <h3 id="主な情報源">主な情報源</h3>
-    <p>
-      <a
-        href="https://discord.com/channels/973157270554804264/1263349407395483729"
-        >https://discord.com/channels/973157270554804264/1263349407395483729</a
-      ><br />
-      <a href="https://x.com/WOS_Japan/status/1808089006011568385"
-        >https://x.com/WOS_Japan/status/1808089006011568385</a
-      >
-    </p>
-    <h3 id="都市">都市</h3>
-    <p>合併後ランダム移転し、24時間のシールドが張られる</p>
-    <h4 id="考えたこととか">考えたこととか</h4>
-    <ul>
-      <li>合流場所を複数決めておくとよさそう</li>
-      <li>てんちょ移転 -&gt; みんな集まる　もあり</li>
-    </ul>
-    <h3 id="同盟領地">同盟領地</h3>
-    <p>
-      同盟領地のボーナスは無効になり、すべての領地建物は回収される(建設に使用されたすべての資源は同盟倉庫に返還される)<br />
-      合併後、同盟本部を建設する必要はない(ラッパやマスター像と同じで、そのまま設置できる)<br />
-      同盟旗は<br />
-    </p>
-    <ul>
-      <li>初期5本</li>
-      <li>6～10本目は2時間毎に1本解放</li>
-      <li>11～20本目は1時間毎に1本解放</li>
-      <li>21～60本目は30分毎に1本解放</li>
-      <li>61～285本目は15分毎に1本解放</li>
-    </ul>
-    <h4 id="考えたこととか-1">考えたこととか</h4>
-    <ul>
-      <li>
-        rydや適当な同盟を使って遠いステーションを囲っておくのもあり(今後の遺恨を考えないのであれば)(<a
-          href="https://discord.com/channels/973157270554804264/1070095511597613066/1269096748937379922"
-          >参照</a
-        >)
-      </li>
-    </ul>
-    <h3 id="砦要塞">砦/要塞</h3>
-    <p>
-      砦争奪イベントが開始されると争奪できる<br />
-      合併が火曜日の昼で、その週の金曜日に開始<br />
-    </p>
-    <h3 id="合併相手">合併相手</h3>
-    <p>
-      サーバーのアクティブさと進行度が合併に考慮される主な要素(総力ではない)<br />
-      合併相手は隣国のサーバーに限らない 3つ以上で合併する可能性もある<br />
-      王国進行度と火晶、英雄の世代が同じ王国とのみ合併される<br />
-    </p>
-    <h3 id="ステーション">ステーション</h3>
-    <p>
-      合併直後、各工程ステーションは未占領の状態になり、保護状態終了後に争奪可能になる
-    </p>
-    <img
-      src="./image/ステーションの保護時間.png"
-      height="500"
-      alt="ステーションの保護時間"
-    />
-    <h3 id="その他">その他</h3>
-    <p>
-      合併の前の週に、プレイヤーに告知される 兵士募集所と軍医所は影響なし<br />
-      座標のラベルはリセット 移民授権所が10枚もらえる<br />
-      メンテナンスが火曜日の11:00～13:00で、その期間に合併される<br />
-      合併後、最初の週の土曜日に王城決戦<br />
-      王国MAPの広さ並びに砦・要塞及び工程ステーションの位置は既存の王国と同じ<br />
-      同盟ログと同盟通知、同盟投票は合併前の分も削除されない<br />
-      同盟チャットや個人チャットは合併前の会話も削除されない<br />
-      グループチャットについては未確認<br />
-    </p>
-    <details>
-      <summary>割とどうでもよさそうな情報</summary>
-      <h3 id="王城決戦と執政官処理">王城決戦と執政官処理</h3>
-      <p>リセット</p>
-      <h3 id="最強王国">最強王国</h3>
-      <p>合併の翌週に開催</p>
-      <h3 id="兵器工場争奪戦峡谷合戦">兵器工場争奪戦/峡谷合戦</h3>
-      <p>
-        合併前に参加資格があれば合併後も参加可能<br />
-        その次からは王国の総力ランキング20位以内の同盟が参加可能<br />
-      </p>
-      <h3 id="ランキング">ランキング</h3>
-      <p>リセット</p>
-      <h3 id="英雄集結超得イベントの旗の一か月のやつ">
-        英雄集結(超得イベントの旗の一か月のやつ)
-      </h3>
-      <p>パスを購入済み: すべてもらえる 未購入: 達成済みのみもらえる</p>
-      <h3 id="同盟略称">同盟略称</h3>
-      <p>同盟略称が重複した場合リセットされる</p>
-      <h4 id="メモ">メモ</h4>
-      <ul>
-        <li>リセット後は早い者勝ちっぽい？</li>
-      </ul>
-      <h3 id="同盟名">同盟名</h3>
-      <p>
-        同盟名が重複した場合、王国番号が同盟名の前に付加される(移民のときと同じやつ？)<br />
-      </p>
-      <h3 id="領主名">領主名</h3>
-      <p>
-        領主名が重複した場合、王国番号が領主名の前に付加される(移民のときと同じやつ？)<br />
-      </p>
-      <h3 id="マイルストーン">マイルストーン</h3>
-      <p>合併後、特別なマイルストーンイベントがある</p>
-    </details>
-    <h2 id="思ったこと引用など">思ったこと・引用など</h2>
-    <ul>
-      <li>
-        一番古い日本鯖は486でまだここまで合併されていないため、日本鯖同士での合併かどうかはまだわからない
-      </li>
-      <li>
-        言語推奨鯖があるのは日本語だけらしいので、合併でも特別扱いしてもらえそう？(discordで&quot;言語推奨鯖&quot;で調べると出てくるコメント参照)
-      </li>
-      <li>
-        351(同盟総力一位のとこ)でも合併されるので、力関係とか関係なく、アクティブ率を合わせるために合併されてそう
-        つまり総力的に格上か格下と合併される可能性が高そう
-      </li>
-      <li>
-        <blockquote>
+      </section>
+
+      <section id="fort">
+        <h2>砦/要塞</h2>
+        <p>砦争奪イベントが開始されると争奪できる</p>
+        <p>合併が火曜日の昼で、その週の金曜日に開始</p>
+      </section>
+
+      <section id="merger-partner">
+        <h2>合併相手</h2>
+        <p>
+          サーバーのアクティブさと進行度が合併に考慮される主な要素(総力ではない)
+        </p>
+        <p>合併相手は隣国のサーバーに限らない</p>
+        <p>3つ以上で合併する可能性もある</p>
+        <p>王国進行度と火晶、英雄の世代が同じ王国とのみ合併される</p>
+      </section>
+
+      <section id="stations">
+        <h2>ステーション</h2>
+        <p>
+          合併直後、各工程ステーションは未占領の状態になり、保護状態終了後に争奪可能になる
+        </p>
+        <img
+          height="400"
+          src="./image/ステーションの保護時間.png"
+          alt="ステーションの保護時間"
+        />
+      </section>
+
+      <section id="other">
+        <h2>その他の情報</h2>
+        <ul>
+          <li>合併は火曜日の11:00～13:00のメンテナンス中に実施</li>
+          <li>合併の前週にプレイヤーへ告知</li>
+          <li>移民授権所が10枚付与</li>
+          <li>座標のラベルはリセット</li>
+          <li>合併後最初の週の土曜日に王城決戦</li>
+          <li>兵士募集所と軍医所は影響なし</li>
+          <li>
+            王国MAPの広さ並びに砦・要塞及び工程ステーションの位置は既存の王国と同じ
+          </li>
+          <li>
+            同盟ログ・同盟通知・同盟投票・同盟チャット・個人チャットは合併前の物を保持
+          </li>
+          <li>グループチャットは未確認</li>
+        </ul>
+      </section>
+
+      <details>
+        <summary>その他どうでもよさそうな情報</summary>
+        <section>
+          <h3>王城決戦と執政官処理</h3>
+          <p>リセット</p>
+
+          <h3>最強王国</h3>
+          <p>合併の翌週に開催</p>
+
+          <h3>兵器工場争奪戦/峡谷合戦</h3>
           <p>
-            合併直後の土曜日に国内太陽城、そのあとSvSっていうパターンだと思うから中でまとまるの早いところが勝ちそう(<a
-              href="https://discord.com/channels/973157270554804264/1070095511597613066/1324241369149214773"
-              >参照</a
-            >)
+            合併前に参加資格があれば合併後も参加可能<br />
+            その次からは王国の総力ランキング20位以内の同盟が参加可能
           </p>
-        </blockquote>
-      </li>
-    </ul>
+
+          <h3>ランキング</h3>
+          <p>リセット</p>
+
+          <h3>英雄集結(超得イベントの旗の一か月のやつ)</h3>
+          <p>パスを購入済み: すべてもらえる</p>
+          <p>未購入: 達成済みのみもらえる</p>
+
+          <h3>同盟略称</h3>
+          <p>同盟略称が重複した場合リセットされる</p>
+
+          <h3>同盟名・領主名</h3>
+          <p>
+            重複した場合、王国番号が名前の前に付加される(移民のときと同じやつ？)
+          </p>
+
+          <h3>マイルストーン</h3>
+          <p>合併後、特別なマイルストーンイベントがある</p>
+        </section>
+      </details>
+
+      <section id="thoughts-quotes">
+        <h2>思ったこと・引用など</h2>
+        <ul>
+          <li>
+            一番古い日本鯖は486でまだここまで合併されていないため、日本鯖同士での合併かどうかはまだわからない
+          </li>
+          <li>
+            言語推奨鯖があるのは日本語だけらしいので、合併でも特別扱いしてもらえそう？(discordで"言語推奨鯖"で調べると出てくるコメント参照)
+          </li>
+          <li>
+            351（同盟総力一位のとこ）でも合併されるので、力関係とか関係なく、アクティブ率を合わせるために合併されてそう
+          </li>
+          <li>
+            <blockquote>
+              <p>
+                合併直後の土曜日に国内太陽城、そのあとSvSっていうパターンだと思うから中でまとまるの早いところが勝ちそう
+                <a
+                  href="https://discord.com/channels/973157270554804264/1070095511597613066/1324241369149214773"
+                  >参照</a
+                >
+              </p>
+            </blockquote>
+          </li>
+        </ul>
+      </section>
+    </div>
   </body>
 </html>
