@@ -1,1 +1,0 @@
-var e=e=>e.toLowerCase().replace(/[ぁ-ゖ]/g,e=>String.fromCharCode(e.charCodeAt(0)+96)).replace(/[\s・]/g,``);export{e as t};
